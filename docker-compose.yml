@@ -1,24 +1,29 @@
-version: "3"
-
 services:
 
   frontend:
-    build: ./client
+    image: ritishhire/socialapp-frontend:latest   # 👈 build remove
     ports:
       - "3000:80"
     depends_on:
       - backend
+    restart: always
 
   backend:
-    build: ./server
+    image: ritishhire/socialapp-backend:latest   # 👈 build remove
     ports:
       - "5000:5000"
     environment:
       - MONGO_URI=mongodb://mongo:27017/socialapp
+      - JWT_SECRET=ritish_secret
     depends_on:
       - mongo
+    restart: always
 
   mongo:
-    image: mongo
-    ports:
-      - "27017:27017"
+    image: mongo:latest
+    volumes:
+      - mongo-data:/data/db
+    restart: always
+
+volumes:
+  mongo-data:
