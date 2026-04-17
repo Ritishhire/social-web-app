@@ -1,16 +1,151 @@
-# React + Vite
+# 🚀 Social Media MERN App with CI/CD
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A full-stack **3-tier MERN (MongoDB, Express, React, Node.js)** application with complete **DevOps automation using Docker, Jenkins, and Trivy**.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 📌 Features
 
-## React Compiler
+* 🔐 User Authentication (Register/Login)
+* 📝 Create, Edit, Delete Posts
+* ❤️ Like & 💬 Comment System
+* 📩 Messaging (DM feature)
+* 🖼️ Image Upload & View
+* 👤 User Profiles
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## 🏗️ Architecture
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+This project follows a **3-tier architecture**:
+
+* 🎨 **Frontend** → React (Vite)
+* ⚙️ **Backend** → Node.js + Express
+* 🗄️ **Database** → MongoDB
+
+---
+
+## ⚙️ Tech Stack
+
+* **Frontend:** React, Vite, Tailwind CSS
+* **Backend:** Node.js, Express.js
+* **Database:** MongoDB
+* **DevOps:** Docker, Jenkins, Trivy
+* **Version Control:** Git & GitHub
+
+---
+
+## 🐳 Docker Setup
+
+### 📁 Project Structure
+
+```
+social-web-app/
+│
+├── client/        # React frontend
+├── server/        # Node backend
+├── docker-compose.yml
+└── Jenkinsfile
+```
+
+---
+
+### 🚀 Run with Docker
+
+```bash
+docker-compose down
+docker-compose up --build -d
+```
+
+👉 Access app:
+
+* Frontend: http://localhost:3000
+* Backend: http://localhost:5000
+
+---
+
+## 🔐 Environment Variables
+
+Create a `.env` file inside the `server` folder:
+
+```
+PORT=5000
+MONGO_URI=mongodb://mongo:27017/socialapp
+JWT_SECRET=your_secret_key
+```
+
+---
+
+## 🔄 CI/CD Pipeline (Jenkins)
+
+### 🚀 Pipeline Stages:
+
+1. Clone Code from GitHub
+2. Build Docker Images
+3. Security Scan (Trivy)
+4. Push Images to DockerHub
+5. Deploy using Docker Compose
+6. Test Containers & APIs
+
+---
+
+## 🔐 Security
+
+* 🔍 Image scanning using **Trivy**
+* 🔑 JWT Authentication implemented
+* 🚫 `.env` excluded from GitHub
+
+---
+
+## 🧪 Testing
+
+Basic API and container testing included:
+
+```bash
+docker ps
+curl http://localhost:5000
+```
+
+---
+
+## 🐛 Challenges Faced
+
+* ❌ Node version mismatch (Vite issue)
+* ❌ Docker container networking issues
+* ❌ MongoDB connection errors
+* ❌ Login authentication bugs
+* ❌ Port conflicts in deployment
+
+---
+
+## 💡 Learnings
+
+* Docker containerization (multi-service apps)
+* CI/CD pipeline creation using Jenkins
+* Debugging real-world production issues
+* Secure application deployment
+
+---
+
+## 📌 Future Improvements
+
+* 🌐 Deploy on AWS (EC2 / ECS)
+* 🔒 HTTPS with Nginx
+* 📊 Logging & Monitoring
+* ⚡ Performance optimization
+
+---
+
+## 🤝 Contributing
+
+Feel free to fork this repo and improve the project!
+
+---
+
+## 📬 Connect with Me
+
+* GitHub: https://github.com/Ritishhire
+
+---
+
+## ⭐ If you like this project, give it a star!
