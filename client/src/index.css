@@ -1,0 +1,51 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── Fix browser autofill turning inputs white ─────────────────────────── */
+/*
+   The only reliable way to override Chrome/Edge autofill background is
+   using an inset box-shadow large enough to fill the input.
+   We use the exact same dark color as the page background.
+*/
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-text-fill-color: #e2e8f0 !important;
+  caret-color: #e2e8f0;
+  transition: background-color 9999s ease-in-out 0s;
+}
+
+/* ─── Smooth custom scrollbar ─── */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(99, 102, 241, 0.35) transparent;
+}
+
+*::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: rgba(99, 102, 241, 0.35);
+  border-radius: 999px;
+}
+
+/* ─── Font smoothing ─── */
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ─── Disable number input spin arrows ─── */
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}

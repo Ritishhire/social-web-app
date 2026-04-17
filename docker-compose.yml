@@ -1,0 +1,24 @@
+version: "3"
+
+services:
+
+  frontend:
+    build: ./client
+    ports:
+      - "3000:80"
+    depends_on:
+      - backend
+
+  backend:
+    build: ./server
+    ports:
+      - "5000:5000"
+    environment:
+      - MONGO_URI=mongodb://mongo:27017/socialapp
+    depends_on:
+      - mongo
+
+  mongo:
+    image: mongo
+    ports:
+      - "27017:27017"
